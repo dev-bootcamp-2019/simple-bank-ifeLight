@@ -37,6 +37,9 @@ contract('SimpleBank', function(accounts) {
     var result = await bank.deposit({from: alice, value: deposit});
     const balance = await bank.balance({from: alice});
 
+    console.log(`Balance : ${balance}`);
+    console.log(`Deposit : ${deposit.toString()}`);
+
     assert.equal(deposit.toString(), balance, 'deposit amount incorrect, check deposit method');
 
     const expectedEventResult = {accountAddress: alice, amount: deposit};
